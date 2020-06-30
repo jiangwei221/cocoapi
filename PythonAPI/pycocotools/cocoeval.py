@@ -212,6 +212,8 @@ class COCOeval:
             g = np.array(gt['keypoints'])
             xg = g[0::3]; yg = g[1::3]; vg = g[2::3]
             for ignore in self.ignoreList:
+                xg[ignore] = 0
+                yg[ignore] = 0
                 vg[ignore] = 0
             k1 = np.count_nonzero(vg > 0)
             bb = gt['bbox']
